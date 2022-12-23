@@ -1,0 +1,137 @@
+ main{
+    height: 100vh;
+    position: relative;
+}
+
+/* images*/
+.carousel{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: orange;
+    height: 60%;
+    width: 70%;
+}
+
+.slide{
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+.selected{
+    display: block;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* images*/
+
+/* "buttons" */
+.previous,
+.next{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    height: 50px;
+    width: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    text-align: center;
+    border-radius: 50px;
+    line-height: 50px;
+    z-index: 5;
+}
+
+.next{
+    right: -20px;
+}
+
+.previous{
+    left: 30px;
+}
+
+.hidden {
+    display: none;
+}
+/* "buttons" */
+
+/* thumbnails */
+.show-thumbnails{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+}
+
+.close-thumbnails{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 0;
+    right: 0;
+    padding: 0 10px 4px 10px ;
+    border-radius: 50%;
+    display: none;
+    z-index: 10;
+}
+
+.thumbnail_img{
+    filter: brightness(60%);
+}
+
+.thumbnails-column{
+    width: 25%;
+    height: 20%;
+    position: absolute;
+    display: none;
+}
+
+.selected-thumbnail{
+    border: 2px solid lightgray;
+    filter: brightness(100%);
+}
+
+
+
+.up,
+.down{
+    position: absolute;
+    left: 88%;
+    transform: translate(-50%);
+    height: 25px;
+    width: 25px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    text-align: center;
+    border-radius: 25px;
+    line-height: 25px;
+    z-index: 15;
+    display: none;
+}
+
+.up{
+    top: 0%;
+
+}
+
+.down{
+    bottom: 0%;
+}
+/* thumbnails */
+
+/* HOVER */
+.previous:hover,
+.next:hover,
+.show-thumbnails:hover,
+.close-thumbnails:hover,
+.up:hover,
+.down:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+}
+/* HOVER */
