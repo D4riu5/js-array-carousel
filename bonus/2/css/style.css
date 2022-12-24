@@ -148,4 +148,13 @@ img{
     cursor: pointer;
     background-color: rgba(255, 255, 255, 1);
 }
+
+.Spider:hover,
+.Alien:hover,
+.Fortnite:hover,
+.Stray:hover,
+.Avengers:hover{
+    cursor: pointer;
+    filter: brightness(160%) drop-shadow(5px 0 0 crimson);;
+}
 /* HOVER */

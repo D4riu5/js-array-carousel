@@ -122,10 +122,11 @@ AlienElement.addEventListener(`click`,
                 selected = 1;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
+                break;
             } else {
                 allSlides[selected].classList.remove('selected');
                 allThumbnails[selected].classList.remove('selected-thumbnail');
-                selected = x;
+                selected = 0;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
             }
@@ -148,10 +149,12 @@ FortniteElement.addEventListener(`click`,
                 selected = 2;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
+                console.log("x is " + x + " selected is " + selected + " STOP")
+                break;
             } else {
                 allSlides[selected].classList.remove('selected');
                 allThumbnails[selected].classList.remove('selected-thumbnail');
-                selected = x;
+                selected = 0;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
             }
@@ -174,10 +177,11 @@ StrayElement.addEventListener(`click`,
                 selected = 3;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
+                break;
             } else {
                 allSlides[selected].classList.remove('selected');
                 allThumbnails[selected].classList.remove('selected-thumbnail');
-                selected = x;
+                selected = 0;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
             }
@@ -200,10 +204,11 @@ AvengersElement.addEventListener(`click`,
                 selected = 4;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
+                break;
             } else {
                 allSlides[selected].classList.remove('selected');
                 allThumbnails[selected].classList.remove('selected-thumbnail');
-                selected = x;
+                selected = 0;
                 allSlides[selected].classList.add('selected');
                 allThumbnails[selected].classList.add('selected-thumbnail');
             }
