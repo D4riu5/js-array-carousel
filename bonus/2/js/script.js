@@ -1,151 +1,82 @@
-// Selectors
+// variables
 const carouselDiv = document.querySelector(".carousel");
+const thumbnailsContainer = document.getElementById(`thumbnails-column`);
+const prevArrow = document.getElementsByClassName('.previous');
+const nextArrow = document.getElementsByClassName('.next');
+const showThumbnails = document.querySelector(`.show-thumbnails`);
+const closeThumbnails = document.querySelector(`.close-thumbnails`);
+const leftArrow = document.getElementById(`lefty`);
+const rightArrow = document.getElementById(`righty`);
+const upArrow = document.getElementById(`uppy`);
+const downArrow = document.getElementById(`downy`);
 
-
-// Arrays
 const images = [`img/01.webp`,`img/02.webp`,`img/03.webp`,`img/04.webp`,`img/05.webp`];
-console.log(images)
+console.log("images array " + images);
 
-// array injection into html (every slide div is hidden now)
 for (let i = 0; i < images.length; i++){
-    carouselDiv.innerHTML += `<div class="slide"><img src="${images[i]}"></div>`;                                           
+    carouselDiv.innerHTML += `<div class="slide"><img src="${images[i]}"></div>`;
+    thumbnailsContainer.innerHTML += `<div class="thumbnail_slide"><img class="img2" src="${images[i]}"></div>`;
 }
 
-// queryselectorAll, makes slides into an array list
 const allSlides = document.querySelectorAll('.slide');
-
-// counter for selected slide
-let selectedSlide = 0;
+console.log("All slides: " + allSlides);
+const allThumbnails = document.querySelectorAll('.thumbnail_slide');
+console.log("All thumbnail slides: " +allThumbnails);
+let selected = 0;
 
 // added selected class to position 0
-allSlides[selectedSlide].classList.add('selected');
+allSlides[selected].classList.add('selected');
+console.log("huh? " + allSlides);
+allThumbnails[selected].classList.add("selected-thumbnail");
 
-const prevArrow = document.querySelector('.previous');
-const nextArrow = document.querySelector('.next');
-
-nextArrow.addEventListener(`click`,
-    function(){
-        if(selectedSlide == allSlides.length -1){
-            allSlides[selectedSlide].classList.remove('selected');
-            selectedSlide = 0;
-            allSlides[selectedSlide].classList.add('selected');
-        } else{
-        allSlides[selectedSlide].classList.remove('selected');
-        selectedSlide++
-        allSlides[selectedSlide].classList.add('selected');
-        }
+function next(){
+    if(selected == allThumbnails.length -1){
+        allSlides[selected].classList.remove('selected');
+        allThumbnails[selected].classList.remove('selected-thumbnail');
+        selected = 0;
+        allSlides[selected].classList.add('selected');
+        allThumbnails[selected].classList.add('selected-thumbnail');
+    } else{
+    allSlides[selected].classList.remove('selected');
+    allThumbnails[selected].classList.remove('selected-thumbnail');
+    selected++
+    allSlides[selected].classList.add('selected');
+    allThumbnails[selected].classList.add('selected-thumbnail');
     }
-);
+};
 
-
-prevArrow.addEventListener(`click`,
-    function(){
-        if(selectedSlide == 0){
-            allSlides[selectedSlide].classList.remove('selected');
-            selectedSlide = allSlides.length -1;
-            allSlides[selectedSlide].classList.add('selected');
-        } else {
-        allSlides[selectedSlide].classList.remove('selected');
-        selectedSlide--
-        allSlides[selectedSlide].classList.add('selected');
-        }
+function prev(){
+    if(selected == 0){
+        allSlides[selected].classList.remove('selected');
+        allThumbnails[selected].classList.remove('selected-thumbnail');
+        selected = allThumbnails.length -1;
+        allSlides[selected].classList.add('selected');
+        allThumbnails[selected].classList.add('selected-thumbnail');
+    } else {
+    allSlides[selected].classList.remove('selected');
+    allThumbnails[selected].classList.remove('selected-thumbnail');
+    selected--;
+    allSlides[selected].classList.add('selected');
+    allThumbnails[selected].classList.add('selected-thumbnail');
     }
-);
+};
 
+function show(){
+    thumbnailsContainer.style.display = "block";
+    showThumbnails.style.display = "none";
+    closeThumbnails.style.display = "block";
+    leftArrow.style.display ='none';
+    rightArrow.style.display ='none';
+    upArrow.style.display = 'block';
+    downArrow.style.display = 'block';
+};
 
-// THUMBNAILS
-
-const thumbnailsContainer = document.querySelector(`.thumbnails-column`);
-const showThumbnails = document.querySelector(`.show-thumbnails`);
-
-let upArrow = document.querySelector(".up");
-let downArrow = document.querySelector(".down");
-
-for (let i = 0; i < images.length; i++){
-    thumbnailsContainer.innerHTML += `<img class="thumbnail_img" src="${images[i]}">`;                      
- }   
-
- const allThumbnails = document.querySelectorAll('.thumbnail_img');
-         console.log(allThumbnails)
-         allThumbnails[selectedSlide].classList.add('selected-thumbnail');
-        
-showThumbnails.addEventListener(`click`,
-    function(){
-        
-        
-
-        showThumbnails.style.display = "none";
-        closeThumbnails.style.display = "block";
-        prevArrow.style.display ='none';
-        nextArrow.style.display ='none';
-        thumbnailsContainer.style.display = "block";
-        upArrow.style.display = 'block';
-        downArrow.style.display = 'block';
-
-        
-        
-         
-
-        
-
-         downArrow.addEventListener(`click`,
-            function(){
-                if(selectedSlide == allThumbnails.length -1){
-                    allSlides[selectedSlide].classList.remove('selected');
-                    allThumbnails[selectedSlide].classList.remove('selected-thumbnail');
-                    selectedSlide = 0;
-                    allSlides[selectedSlide].classList.add('selected');
-                    allThumbnails[selectedSlide].classList.add('selected-thumbnail');
-                } else{
-                allSlides[selectedSlide].classList.remove('selected');
-                allThumbnails[selectedSlide].classList.remove('selected-thumbnail');
-                selectedSlide++
-                allSlides[selectedSlide].classList.add('selected');
-                allThumbnails[selectedSlide].classList.add('selected-thumbnail');
-                }
-            }
-        );
-
-
-        upArrow.addEventListener(`click`,
-            function(){
-                if(selectedSlide == 0){
-                    allSlides[selectedSlide].classList.remove('selected');
-                    allThumbnails[selectedSlide].classList.remove('selected-thumbnail');
-                    selectedSlide = allThumbnails.length -1;
-                    allSlides[selectedSlide].classList.add('selected');
-                    allThumbnails[selectedSlide].classList.add('selected-thumbnail');
-                } else {
-                allSlides[selectedSlide].classList.remove('selected');
-                allThumbnails[selectedSlide].classList.remove('selected-thumbnail');
-                selectedSlide--
-                allSlides[selectedSlide].classList.add('selected');
-                allThumbnails[selectedSlide].classList.add('selected-thumbnail');
-                }
-            }
-        );
-         
-    }
-);
-
-const closeThumbnails = document.querySelector(`.close-thumbnails`)
-
-
-
-closeThumbnails.addEventListener(`click`,
-    function(){
-
-    
-         
+function see(){ 
+        thumbnailsContainer.style.display = "none";
         upArrow.style.display = 'none';
         downArrow.style.display = 'none';
         showThumbnails.style.display = "block";
         closeThumbnails.style.display = "none";
-        prevArrow.style.display ='block'
-        nextArrow.style.display ='block'
-        thumbnailsContainer.style.display = "none";
-        
-       
-        
-    }
-);
+        leftArrow.style.display ='block';
+        rightArrow.style.display ='block';
+};

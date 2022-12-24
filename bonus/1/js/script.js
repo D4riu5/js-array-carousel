@@ -12,7 +12,7 @@ for (let i = 0; i < images.length; i++){
 
 // queryselectorAll, makes slides into an array list
 const allSlides = document.querySelectorAll('.slide');
-
+console.log("All slides: " + allSlides);
 // counter for selected slide
 let selectedSlide = 0;
 

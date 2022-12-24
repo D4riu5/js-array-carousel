@@ -1,17 +1,22 @@
  main{
     height: 100vh;
+
+}
+
+.my_wrapper{
     position: relative;
+    height: 50vh;
+    width: 60vw;
 }
 
 /* images*/
 .carousel{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    right: 0;
     background-color: orange;
-    height: 60%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
 }
 
 .slide{
@@ -32,8 +37,8 @@ img{
 /* images*/
 
 /* "buttons" */
-.previous,
-.next{
+.left,
+.right{
     position: absolute;
     top: 50%;
     transform: translate(-50%);
@@ -44,14 +49,14 @@ img{
     text-align: center;
     border-radius: 50px;
     line-height: 50px;
-    z-index: 5;
+    z-index: 10;
 }
 
-.next{
+.right{
     right: -20px;
 }
 
-.previous{
+.left{
     left: 30px;
 }
 
@@ -80,28 +85,38 @@ img{
     z-index: 10;
 }
 
-.thumbnail_img{
-    filter: brightness(60%);
-}
-
-.thumbnails-column{
-    width: 25%;
-    height: 20%;
+#thumbnails-column{
     position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: red;
+    height: 20%;
+    width: 20%;
+    z-index: 5;
     display: none;
 }
 
-.selected-thumbnail{
-    border: 2px solid lightgray;
-    filter: brightness(100%);
+.thumbnail_img{
+    filter: brightness(60%);
+    height: 100%;
+    width: 100%;
 }
 
+.img2{
+    filter: brightness(50%);
+    height: 10vh;
+}
 
+.selected-thumbnail > .img2{
+    border: 2px solid lightgray;
+    filter: brightness(130%);
+}
 
 .up,
 .down{
     position: absolute;
-    left: 88%;
+    left: 90%;
     transform: translate(-50%);
     height: 25px;
     width: 25px;
@@ -116,7 +131,6 @@ img{
 
 .up{
     top: 0%;
-
 }
 
 .down{
